@@ -1,0 +1,5 @@
+include ../mixins/timestamp
+
+mixin svg(name, width='20', height='20', classes='', styles='')
+	svg(width=width, height=height, class=classes, style=styles)
+		use(xlink:href='/icons/sprite.svg' + timestamp + '#' + name)

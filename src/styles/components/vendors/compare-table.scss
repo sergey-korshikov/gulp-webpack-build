@@ -1,0 +1,221 @@
+@import '../mixins/smart-grid.scss';
+
+.compareTable {
+  position: relative;
+  color: var(--color-dark);
+
+  .thead {
+    border-bottom: 1px solid var(--color-border);
+
+    &.sticky {
+      background: #fff;
+      position: sticky;
+      z-index: 1;
+      top: 0;
+    }
+  }
+
+  .tcontrol {
+    border-bottom: 1px solid var(--color-border);
+
+    button {
+      cursor: pointer;
+      font-size: 16px;
+      padding: 12px 0;
+      font-weight: 500;
+      position: relative;
+      padding-right: 30px;
+      color: var(--color-dark);
+      transition: color 0.2s ease-in-out;
+
+      svg {
+        color: var(--color-light);
+        transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
+        transform: rotate(-90deg) translate(50%, -50%);
+        position: absolute;
+        right: 0;
+        top: 50%;
+      }
+
+      @import '../helpers/focus';
+
+      @include from(768px) {
+        &:hover {
+          color: var(--color-accent);
+
+          svg {
+            color: var(--color-accent);
+          }
+        }
+      }
+    }
+
+    &.open {
+      button {
+        svg {
+          transform: rotate(-90deg) translate(50%, -50%) scale(-1, 1);
+        }
+      }
+    }
+  }
+
+  .tgroup {
+    position: relative;
+    margin-bottom: 24px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &.close {
+      display: none;
+    }
+  }
+
+  .tline {
+    border-bottom: 1px solid var(--color-border);
+
+    &:last-child {
+      border: none;
+    }
+  }
+
+  .tname {
+    font-size: 14px;
+    padding-top: 12px;
+    color: var(--color-light);
+  }
+
+  .tw {
+    overflow: hidden;
+    margin: 0 -16px;
+  }
+
+  .tr {
+    display: flex;
+    position: relative;
+    transition: left 0.2s ease-in-out;
+    height: 100%;
+  }
+
+  .td,
+  .th {
+    flex: 4 0 0;
+    padding: 10px 15px;
+  }
+
+  &.unique {
+    .equally {
+      display: none;
+    }
+  }
+
+  &.drag {
+    cursor: grab;
+
+    img,
+    a {
+      touch-action: manipulation;
+      user-select: none;
+    }
+
+    .tw {
+      touch-action: manipulation;
+    }
+
+    .tr {
+      touch-action: pan-y;
+      user-select: none;
+    }
+  }
+
+  &.pressed {
+    cursor: grabbing;
+
+    .tr {
+      transition: none;
+    }
+  }
+
+  &.empty {
+    display: none;
+  }
+}
+
+.compareTable__buttons {
+  max-width: 1340px;
+  width: calc(100vw - 30px);
+  transform: translate(-50%, -50%);
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  top: 50%;
+
+  @include max1229-block {
+    max-width: 1070px;
+  }
+
+  @include max991-block {
+    max-width: 860px;
+  }
+
+  @include max767-block {
+    max-width: 670px;
+  }
+
+  @include max599-block {
+    width: calc(100vw - 10px);
+  }
+}
+
+.compareTable__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-light);
+  background: var(--color-background);
+  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, opacity 0.2s ease-in-out;
+  transform: translateY(-50%);
+  border-radius: 5px;
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  top: 50%;
+
+  svg {
+    display: block;
+    transform: translate(-1px);
+  }
+
+  &.disabled {
+    opacity: 0.35;
+  }
+
+  &.hide {
+    display: none;
+  }
+
+  &_prev {
+    left: 0;
+  }
+
+  &_next {
+    right: 0;
+
+    svg {
+      transform: scale(-1) translate(-1px);
+    }
+  }
+
+  &:active:not(.disabled) {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15) inset;
+  }
+
+  @import '../helpers/focus';
+
+  &:hover:not(.disabled) {
+    color: #fff;
+    background: var(--color-accent);
+    cursor: pointer;
+  }
+}

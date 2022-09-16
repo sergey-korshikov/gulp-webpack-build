@@ -1,0 +1,93 @@
+@import '../mixins/font.scss';
+
+@include font(
+  'OpenSans',
+  '../fonts/OpenSans/woff2/OpenSans-Light.woff2',
+  '../fonts/OpenSans/woff/OpenSans-Light.woff',
+  'normal',
+  '300'
+);
+
+@include font(
+  'OpenSans',
+  '../fonts/OpenSans/woff2/OpenSans-LightItalic.woff2',
+  '../fonts/OpenSans/woff/OpenSans-LightItalic.woff',
+  'italic',
+  '300'
+);
+
+@include font(
+  'OpenSans',
+  '../fonts/OpenSans/woff2/OpenSans-Regular.woff2',
+  '../fonts/OpenSans/woff/OpenSans-Regular.woff',
+  'normal',
+  '400'
+);
+
+@include font(
+  'OpenSans',
+  '../fonts/OpenSans/woff2/OpenSans-Italic.woff2',
+  '../fonts/OpenSans/woff/OpenSans-Italic.woff',
+  'italic',
+  '400'
+);
+
+@include font(
+  'OpenSans',
+  '../fonts/OpenSans/woff2/OpenSans-SemiBold.woff2',
+  '../fonts/OpenSans/woff/OpenSans-SemiBold.woff',
+  'normal',
+  '600'
+);
+
+@include font(
+  'OpenSans',
+  '../fonts/OpenSans/woff2/OpenSans-SemiBoldItalic.woff2',
+  '../fonts/OpenSans/woff/OpenSans-SemiBoldItalic.woff',
+  'italic',
+  '600'
+);
+
+@include font(
+  'OpenSans',
+  '../fonts/OpenSans/woff2/OpenSans-Bold.woff2',
+  '../fonts/OpenSans/woff/OpenSans-Bold.woff',
+  'normal',
+  '700'
+);
+
+@include font(
+  'OpenSans',
+  '../fonts/OpenSans/woff2/OpenSans-BoldItalic.woff2',
+  '../fonts/OpenSans/woff/OpenSans-BoldItalic.woff',
+  'italic',
+  '700'
+);
+
+@include font(
+  'OpenSans',
+  '../fonts/OpenSans/woff2/OpenSans-ExtraBold.woff2',
+  '../fonts/OpenSans/woff/OpenSans-ExtraBold.woff',
+  'normal',
+  '800'
+);
+
+@include font(
+  'OpenSans',
+  '../fonts/OpenSans/woff2/OpenSans-ExtraBoldItalic.woff2',
+  '../fonts/OpenSans/woff/OpenSans-ExtraBoldItalic.woff',
+  'italic',
+  '800'
+);
+
+
+
+// 100 – Thin || Hairline
+// 200 – Extra Light || Ultra Light || Thin
+// 300 – Light
+// 400 – Normal || Regular
+// 500 – Medium
+// 600 – Semi Bold || Demi Bold
+// 700 – Bold
+// 800 – Extra Bold || Ultra Bold || Heavy
+// 900 – Black || Heavy

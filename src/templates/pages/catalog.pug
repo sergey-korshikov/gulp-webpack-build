@@ -1,0 +1,14 @@
+extends ../base/page
+
+block variables
+	- var pageTitle = 'Страница каталога'
+	- var styles = ['../styles/catalog-page.css']
+	- var scripts = ['../scripts/catalog-page.js']
+
+block content
+	include ../components/header
+
+	main.main
+		.container
+
+	include ../components/footer

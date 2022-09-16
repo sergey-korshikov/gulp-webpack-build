@@ -1,0 +1,33 @@
+extends base/page
+
+block variables
+	- var pageTitle = 'Индексная страница'
+	//- - var pageClass = '' // дополнительный класс для body
+	- var styles = ['../styles/main-page.css']
+	//- - var scripts = ['script.js']
+
+block content
+	style.
+		main{background:#353844;color:#fff;min-height:100vh;line-height:1.5;padding:50px 0}
+		main b{display:block;font-size:20px;margin-bottom:10px}
+		main .row{max-width:800px}
+		main ul{margin-bottom:50px;padding-left:20px}
+		main li{margin-bottom:5px}
+		main a{color:#fff}
+		main svg{margin:15px}
+
+	main
+		.container
+			b Ссылки:
+			ul
+				li
+					a(href="/main/") Главная
+				li
+					a(href="/catalog/") Каталог
+
+			b Иконки:
+			.row
+				+svg('arrow', '50', '50')
+				+svg('cross', '50', '50')
+				+svg('burger', '50', '50')
+				+svg('magnific', '50', '50')

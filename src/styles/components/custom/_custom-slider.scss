@@ -1,0 +1,142 @@
+.customSlider {
+  position: relative;
+
+  .swiper-slide {
+    overflow: hidden;
+    height: auto;
+  }
+
+  .swiper-pagination-bullet {
+    background: transparent;
+    margin: 0 !important;
+    border-radius: 2px;
+    opacity: 1;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: skewX(-20deg);
+
+    &::after {
+      content: '';
+      width: 8px;
+      height: 5px;
+      background: var(--color-light);
+      transition: background-color .2s ease-in-out;
+    }
+
+    &.swiper-pagination-bullet-active {
+      background: transparent;
+
+      &::after {
+        background: var(--color-accent);
+      }
+    }
+
+    @import 'helpers/focus';
+
+    @include from(768px) {
+      &:hover:not(.swiper-pagination-bullet-active)::after {
+        background: var(--color-accent);
+      }
+    }
+  }
+}
+
+.customSlider__buttons {
+  max-width: 1340px;
+  width: calc(100vw - 30px);
+  transform: translate(-50%, -50%);
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  top: 50%;
+
+  @include max1229-block {
+    max-width: 1070px;
+  }
+
+  @include max991-block {
+    max-width: 860px;
+  }
+
+  @include max767-block {
+    max-width: 670px;
+  }
+
+  @include max599-block {
+    width: calc(100vw - 10px);
+  }
+}
+
+.customSlider__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-light);
+  background: var(--color-background);
+  transition: color .2s ease-in-out, background-color .2s ease-in-out, opacity .2s ease-in-out;
+  transform: translateY(-50%);
+  border-radius: 5px;
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  top: 50%;
+
+  svg {
+    display: block;
+    transform: translate(-1px);
+  }
+
+  &:not([aria-controls]),
+  &.swiper-button-disabled {
+    pointer-events: all;
+    opacity: 0.5;
+  }
+
+  &.swiper-button-lock {
+    opacity: 0;
+  }
+
+  &::after {
+    display: none;
+  }
+
+  &_prev {
+    left: 0;
+  }
+
+  &_next {
+    right: 0;
+
+    svg {
+      transform: scale(-1) translate(-1px);
+    }
+  }
+
+  @import 'helpers/focus';
+
+  &[aria-controls] {
+    &:active:not(.swiper-button-disabled):not(.swiper-button-lock) {
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.15) inset;
+    }
+
+    @include from(768px) {
+      &:hover:not(.swiper-button-disabled):not(.swiper-button-lock) {
+        color: #fff;
+        background: var(--color-accent);
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.customSlider__pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  padding: 12px 0;
+}

@@ -1,0 +1,14 @@
+extends ../base/page
+
+block variables
+	- var pageTitle = 'Главная страница'
+	- var styles = ['../styles/main-page.css']
+	- var scripts = ['../scripts/main-page.js']
+
+block content
+	include ../components/header
+
+	main.main
+		.container
+
+	include ../components/footer

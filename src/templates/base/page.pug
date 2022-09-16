@@ -1,0 +1,49 @@
+include ../mixins/timestamp
+include ../mixins/svg
+
+block variables
+
+doctype html
+html(lang='ru')
+	head
+		meta(charset = 'utf-8')
+		meta(name='viewport', content='initial-scale=1.0, width=device-width')
+		meta(http-equiv='X-UA-Compatible', content='IE=Edge')
+		meta(name="format-detection", content="telephone=no")
+		link(href='/icons/favicon.png' + timestamp, rel='shortcut icon', type='image/png')
+		title=pageTitle + ' | Название сайта'
+
+		//- library styles for every page
+		//- link(href='/styles/vendors/normalize.css' + timestamp, rel='stylesheet')
+
+		- if (styleVendors)
+			// library styles for this page
+			- for (var x = 0; x < styleVendors.length; x++)
+				link(href=styleVendors[x] + timestamp, rel='stylesheet')
+
+		//- styles for every page
+		//- link(href='/styles/general.css' + timestamp, rel='stylesheet')
+
+		- if (styles)
+			// styles for this page
+			- for (var x = 0; x < styles.length; x++)
+				link(href=styles[x] + timestamp, rel='stylesheet')
+
+	body.page(class=pageClass)
+		block content
+
+		//- library scripts for every page
+		//- script(src='/scripts/vendors/focus-visible.min.js' + timestamp, defer)
+
+		- if (scriptVendors)
+			// library scripts for this page
+			- for (var x = 0; x < scriptVendors.length; x++)
+				script(src=scriptVendors[x] + timestamp, defer)
+
+		//- scripts for every page
+		//- script(src='/scripts/general.min.js' + timestamp, defer)
+
+		- if (scripts)
+			// scripts for this page
+			- for (var x = 0; x < scripts.length; x++)
+				script(src=scripts[x] + timestamp, defer)

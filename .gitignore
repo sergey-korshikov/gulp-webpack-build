@@ -1,0 +1,8 @@
+models
+build
+node_modules
+src/static/images
+src/static/videos
+debug.log
+*.zip
+*.rar

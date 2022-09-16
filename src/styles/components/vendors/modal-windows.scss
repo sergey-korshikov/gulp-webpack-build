@@ -1,0 +1,132 @@
+@import '../mixins/smart-grid.scss';
+
+.modalWindow {
+  width: 100%;
+  height: 100%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(51, 51, 51, 0.7);
+  position: fixed;
+  z-index: 999;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  top: 0;
+
+  &::before {
+    content: '';
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    background: url(/upload/images/2022/ajax.gif) center/50% no-repeat #fff;
+    transition: opacity .2s ease-in-out;
+    border-radius: 5px;
+  }
+
+  &.loading {
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  &.sent {
+    .modalWindow__form {
+      display: none;
+    }
+
+    .modalWindow__result {
+      display: block;
+    }
+  }
+}
+
+.modalWindow__popup {
+  display: none;
+  width: 600px;
+  max-width: calc(100% - 48px);
+  max-height: calc(100% - 48px);
+  background-color: #fff;
+  border-radius: 5px;
+  position: relative;
+  overflow: auto;
+  z-index: 2;
+
+  @include max599-block {
+    max-width: calc(100% - 32px);
+    max-height: calc(100% - 32px);
+  }
+}
+
+.modalWindow__close {
+  cursor: pointer;
+  color: var(--color-light);
+  transition: color .2s ease-in-out;
+  position: absolute;
+  right: 12px;
+  top: 12px;
+
+  svg {
+    display: block;
+    padding: 5px;
+  }
+
+  @include max599-block {
+    right: 8px;
+    top: 8px;
+  }
+
+  @import '../helpers/focus';
+
+  @include from(768px) {
+    &:hover {
+      color: var(--color-accent);
+    }
+  }
+}
+
+.modalWindow__content {
+  padding: 32px;
+
+  @include max599-block {
+    padding: 24px;
+  }
+}
+
+.modalWindow__result {
+  display: none;
+  text-align: center;
+}
+
+.modalWindow__title {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 12px;
+
+  @include max599-block {
+    font-size: 20px;
+  }
+}
+
+.modalWindow__subtitle {
+  font-size: 20px;
+  margin-bottom: 12px;
+
+  @include max599-block {
+    font-size: 16px;
+  }
+}
+
+.modalWindow__error {
+  display: none;
+  margin-top: 16px;
+  color: var(--color-accent);
+
+  &.active {
+    display: block;
+  }
+}

@@ -1,0 +1,96 @@
+.phone-outer-wrapper {
+  position: relative;
+}
+
+.country-btn {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding-right: 20px;
+  padding-left: 20px;
+  position: absolute;
+  height: 100%;
+  right: 0;
+  top: 0;
+
+  svg {
+    margin-left: 5px;
+  }
+
+  &.active {
+    svg {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.country-select {
+  display: none;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  position: absolute;
+  z-index: 100;
+  top: 100%;
+  right: 0;
+  left: 0;
+
+  &.active {
+    display: block;
+  }
+}
+
+.country-select__inner {
+  max-height: 232px;
+  overflow: auto;
+}
+
+.country-select__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  height: 56px;
+  cursor: pointer;
+}
+
+.country-select__name {
+  font-size: 16px;
+  line-height: 24px;
+  vertical-align: middle;
+  display: inline-block;
+  margin-left: 16px;
+}
+
+.country-select__code {
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--color-light);
+}
+
+.country-select__item {
+  transition: background-color 0.25s;
+
+  img {
+    vertical-align: middle;
+  }
+
+  &:hover {
+    background-color: var(--color-background);
+  }
+}
+
+.is-ru .ru,
+.is-bl .bl,
+.is-arm .arm,
+.is-azr .azr,
+.is-grz .grz,
+.is-krz .krz,
+.is-mld .mld,
+.is-tdz .tdz,
+.is-trk .trk,
+.is-uzb .uzb,
+.is-ukr .ukr,
+.is-kz .kz {
+  display: none;
+}

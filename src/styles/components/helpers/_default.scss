@@ -1,0 +1,121 @@
+* {
+  font-family: OpenSans, Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+*,
+html,
+button,
+input,
+optgroup,
+select,
+textarea {
+  line-height: 1.5;
+}
+
+input,
+select,
+button,
+optgroup,
+textarea {
+  color: var(--color-dark);
+}
+
+input,
+textarea {
+  -webkit-appearance: none;
+}
+
+[data-js-focus-visible] :focus:not(.focus-visible) {
+  outline: none !important;
+}
+
+a {
+  text-decoration: none;
+
+  &:focus {
+    text-decoration: none;
+  }
+}
+
+button {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+}
+
+html.fixed {
+  overflow-y: hidden;
+}
+
+body.fixed {
+  overflow-y: scroll;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  color: var(--color-dark);
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
+  // margin: 0 auto;
+  // max-width: 1920px;
+  // overflow-x: hidden;
+}
+
+.container {
+  width: 100%;
+  @include wrapper();
+  @include max1919-block {
+    max-width: 1410px;
+  }
+  @include max1439-block {
+    max-width: 1200px;
+  }
+  @include max1229-block {
+    max-width: 960px;
+  }
+  @include max991-block {
+    max-width: 750px;
+  }
+  @include max767-block {
+    max-width: 560px;
+  }
+}
+
+.container-fluid {
+  @include wrapper-full();
+}
+
+.row {
+  @include row-flex();
+}
+
+hr {
+  border: none;
+  color: var(--color-border);
+  background-color: var(--color-border);
+  margin: 0 0 16px;
+  height: 1px;
+}
+
+.disable-scroll {
+  overflow: hidden;
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+
+.visually-hidden {
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+  height: 1px !important;
+  width: 1px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  overflow: hidden;
+}
